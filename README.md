@@ -25,7 +25,10 @@ Item and Field used to extract data by xpath from xexp doc. I use [SXML](https:/
   (item
     (item-field #:name "title" #:xpath "//*[@class='text']/text()" #:filter (λ (x) (car x)))
     (item-field #:name "author" #:xpath "//*[@class='author']/text()" #:filter (λ (x) (car x)))
-    (item-field #:name "about-url" #:xpath "//span[2]/a/@href/text()" #:filter (λ (x) (string-append "http://quotes.toscrape.com" (car x))))
+    (item-field
+      #:name "about-url" 
+      #:xpath "//span[2]/a/@href/text()"
+      #:filter (λ (x) (string-append "http://quotes.toscrape.com" (car x))))
     (item-field #:name "tags" #:xpath "//*[@class='tag']/text()")))
 
 (define about-item 
