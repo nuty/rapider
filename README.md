@@ -70,12 +70,13 @@ Item and Field used to extract data by xpath from xexp doc. I use [SXML](https:/
 
     (define/public (quote-element rsp)
       (define quote-items (quote-item rsp))
-      (displayln quote-items) ;;;lets handle quote data
+       ;;;lets handle quote data
+      (displayln quote-items)
       (request this (hash-ref quote-items "about-url") 'about))
 
     (define/public (about rsp)
-      (displayln (about-item (html->xexp rsp)));;;lets handle quote data
-      )
+      ;;;lets handle quote data
+      (displayln (about-item (html->xexp rsp))))
 
   (super-new)))
 
