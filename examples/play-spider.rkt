@@ -1,7 +1,6 @@
 #lang racket
 
 (require 
-  ; "../../rapider-lib/rapider/main.rkt"
   rapider
 )
 
