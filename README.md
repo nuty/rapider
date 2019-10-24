@@ -1,7 +1,6 @@
 ## Overview
 
-Rapider is a threading based web scraping lib, written with `racket` and `async-channel`, 
-just for fun.
+Rapider is a web scraping micro-framework based on thread, written with `racket` and `async-channel`, just for fun.
 
 
 ## Installation
