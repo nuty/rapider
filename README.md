@@ -99,13 +99,4 @@ Run `racket crawler.rkt`:
 (info) (2019-10-22 02:50:09) (rapider: http://quotes.toscrape.com/author/Albert-Einstein) (crawled)
 (info) (2019-10-22 02:50:09) (rapider: http://quotes.toscrape.com/author/Haruki-Murakami) (crawled)
 (info) (2019-10-22 02:50:09) (rapider: http://quotes.toscrape.com/author/Alexandre-Dumas-fils) (crawled)
-(info) (2019-10-22 02:50:10) (rapider: http://quotes.toscrape.com/author/Stephenie-Meyer) (crawled)
-(info) (2019-10-22 02:50:11) (rapider: http://quotes.toscrape.com/author/Ernest-Hemingway) (crawled)
-(info) (2019-10-22 02:50:11) (rapider: http://quotes.toscrape.com/author/Helen-Keller) (crawled)
-(info) (2019-10-22 02:50:11) (rapider: http://quotes.toscrape.com/author/George-Bernard-Shaw) (crawled)
-(info) (2019-10-22 02:50:11) (rapider: http://quotes.toscrape.com/author/Marilyn-Monroe) (crawled)
-(info) (2019-10-22 02:50:11) (rapider: http://quotes.toscrape.com/author/J-K-Rowling) (crawled)
-(info) (2019-10-22 02:50:11) (rapider: http://quotes.toscrape.com/author/Albert-Einstein) (crawled)
-(info) (2019-10-22 02:50:11) (rapider: http://quotes.toscrape.com/author/Bob-Marley) (crawled)
-(info) (2019-10-22 02:50:11) (rapider: http://quotes.toscrape.com/author/Dr-Seuss) (crawled)
 ```

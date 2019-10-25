@@ -42,7 +42,7 @@
     (log-info url)
     (call/input-url
       (string->url url)
-        (curry put-pure-port #:redirections 5)
+        (curry delete-pure-port #:redirections 5)
       port->string
       header)))
 

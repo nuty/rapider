@@ -2,8 +2,7 @@
 
 (require 
   rapider
-  html-parsing
-  sxml)
+  html-parsing)
 
 
 

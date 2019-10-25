@@ -1,7 +1,6 @@
 #lang racket
 (require
   sxml
-  json
   racket/logging)
 
 (define (extract-data html partern)

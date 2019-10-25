@@ -1,9 +1,5 @@
 #lang racket
 (require
-  racket/logging
-  net/url
-  html-parsing
-  sxml
   "ctx.rkt")
 
 
