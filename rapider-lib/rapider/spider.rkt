@@ -1,6 +1,6 @@
 #lang racket
 (require
-  "ctx.rkt")
+  "worker.rkt")
 
 
 (define spider%
