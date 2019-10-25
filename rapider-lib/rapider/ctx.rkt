@@ -28,7 +28,6 @@
     (define headers (headers->jsoneq (extract-all-fields header)))
     (response url-string status headers (port->string port))))
 
-
 (define (headers->jsoneq header-dict)
   (for/hasheq ([hd header-dict])
     (values (string->symbol (car hd)) (string-trim (cdr hd)))))
