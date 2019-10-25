@@ -21,6 +21,10 @@ Item and Field used to extract data by xpath from xexp doc. I use [SXML](https:/
 
 (require rapider)
 
+(provide
+  quote-item
+  about-item)
+
 (define quote-item
   (item
     (item-field #:name "title" #:xpath "//*[@class='text']/text()" #:filter (λ (x) (car x)))
