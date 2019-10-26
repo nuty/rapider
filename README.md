@@ -69,7 +69,7 @@ Item and Field used to extract data by xpath from xexp doc. I use [SXML](https:/
         (request this url 'quotes-list)))
 
     (define/public (quotes-list rsp)
-      (for ([item (extract-data (html->xexp rsp) "//*[@class='quote']")])
+      (for ([item (extract-data (html->xexp (response-content rsp)) "//*[@class='quote']")])
         (next this item 'quote-element)))
 
     (define/public (quote-element rsp)
@@ -80,7 +80,7 @@ Item and Field used to extract data by xpath from xexp doc. I use [SXML](https:/
 
     (define/public (about rsp)
       ;;;lets handle quote data
-      (displayln (about-item (html->xexp rsp))))
+      (displayln (about-item (html->xexp (response-content rsp)))))
 
   (super-new)))
 

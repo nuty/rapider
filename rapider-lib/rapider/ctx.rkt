@@ -9,11 +9,12 @@
   racket/string
   "logging.rkt")
 
+;;; https://gist.github.com/DarrenN/b2a764c0e8f80dc19dbb3858700749c1
 
 (current-logger rapider-log)
 
-(struct status (version code text) #:transparent)
-(struct response (url status headers content) #:transparent)
+(define-struct status (version code text) #:transparent)
+(define-struct response (url status headers content) #:transparent)
 
 (define get-url
   (λ (url-string [h (list)])
@@ -26,7 +27,7 @@
         #:status? #t))
     (define status (parse-status (get-status header)))
     (define headers (headers->jsoneq (extract-all-fields header)))
-    (response url-string status headers (port->string port))))
+    (make-response url-string status headers (port->string port))))
 
 (define (headers->jsoneq header-dict)
   (for/hasheq ([hd header-dict])
@@ -37,7 +38,7 @@
 
 (define (parse-status status-str)
   (define-values (version code text) (apply values (string-split status-str)))
-  (status version code text))
+  (make-status version code text))
 
-
-(provide get-url)
+(provide 
+  (all-defined-out))

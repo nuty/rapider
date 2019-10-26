@@ -1,7 +1,7 @@
 #lang racket
 
 (require 
-  rapider
+  "../rapider-lib/rapider/main.rkt"
   html-parsing
   sxml/sxpath)
 
@@ -34,7 +34,7 @@
         (request this url 'quotes-list)))
 
     (define/public (quotes-list rsp)
-      (for ([item (extract-data (html->xexp rsp) "//*[@class='quote']")])
+      (for ([item (extract-data (html->xexp (response-content rsp)) "//*[@class='quote']")])
         (next this item 'quote-element)))
 
     (define/public (quote-element rsp)
@@ -43,7 +43,7 @@
       (request this (hash-ref quote-items "about-url") 'about))
 
     (define/public (about rsp)
-      (displayln (about-item (html->xexp rsp))))
+      (displayln (about-item (html->xexp (response-content rsp)))))
 
   (super-new)))
 

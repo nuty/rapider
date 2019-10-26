@@ -25,7 +25,7 @@
       (request this base-url 'parse-list))
 
     (define/public (parse-list rsp)
-      (displayln (html->xexp rsp)))
+      (displayln (html->xexp (response-content rsp))))
 
   (super-new)))
 

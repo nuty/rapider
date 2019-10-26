@@ -11,7 +11,7 @@
 
     (init-field 
       (name "fast")
-      (pages 100)
+      (pages 2)
       (base-url "http://www.xinfadi.com.cn/marketanalysis/0/list/")
       (start-urls 
         (map 
@@ -20,13 +20,12 @@
 
     (define/public (start)
       (for ([url start-urls])
-        (request this url (list 'parse-list 'parse-list1))))
+        (request this url (list 'parse-list))))
 
     (define/public (parse-list rsp)
-      (displayln rsp))
+      (displayln (response-url rsp))
+      (displayln (response-status rsp)))
 
-    (define/public (parse-list1 rsp)
-       (displayln (html->xexp rsp)))
 
   (super-new)))
 

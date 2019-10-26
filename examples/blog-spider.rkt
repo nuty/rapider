@@ -1,7 +1,8 @@
 #lang racket
 
 (require 
-  rapider
+  ; rapider
+  "../rapider-lib/rapider/main.rkt"
   html-parsing
   db
   sxml/sxpath)
@@ -32,7 +33,7 @@
         (request this url 'parse-list)))
 
     (define/public (parse-list rsp)
-      (for ([item (extract-data (html->xexp rsp) item-url-partern)])
+      (for ([item (extract-data (html->xexp (response-content rsp)) item-url-partern)])
         (let ([item-url (string-append base-url (car (cdr item)))])
           (request this item-url 'parse-blog))))
 
