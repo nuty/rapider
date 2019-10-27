@@ -1,8 +1,7 @@
 #lang racket
 
 (require 
-  ; rapider
-  "../rapider-lib/rapider/main.rkt"
+  rapider
   html-parsing
   db
   sxml/sxpath)

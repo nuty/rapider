@@ -1,7 +1,7 @@
 #lang racket
 
 (require 
-  rapider
+  "../rapider-lib/rapider/main.rkt"
   html-parsing
   sxml)
 
@@ -15,7 +15,7 @@
 
     (init-field 
       (name "xinfadi")
-      (pages 100)
+      (pages 10)
       (header '("User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/77.0.3865.90 Safari/537.36"))
       (base-url "http://www.xinfadi.com.cn/marketanalysis/0/list/")
       (start-urls 
@@ -25,10 +25,10 @@
 
     (define/public (start)
       (for ([url start-urls])
-        (request this url 'parse-list)))
+        (request this url 'parse-list (list "a"))))
 
-    (define/public (parse-list rsp)
-      (void))
+    (define/public (parse-list rsp extra)
+      (displayln extra))
 
   (super-new)))
 
