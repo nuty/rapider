@@ -33,10 +33,8 @@
     (values (string->symbol (car hd)) (string-trim (cdr hd)))))
 
 (define (get-status header-string)
-  (if 
-    (string-contains? (car (regexp-match #px"[\\w/ .]*" header-string)) "OK") 
-      (car (regexp-match #px"[\\w/ .]*" header-string)) 
-  (string-append (car (regexp-match #px"[\\w/ .]*" header-string)) "OK")))
+  (define ret (car (regexp-match #px"[\\w/ .]*" header-string)))
+  (if (string-contains? ret "OK") ret (string-append ret "OK")))
 
 (define (parse-status status-str)
   (define-values (version code text) (apply values (string-split status-str)))
