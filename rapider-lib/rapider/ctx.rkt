@@ -6,24 +6,20 @@
   net/url-string
   net/head
   racket/dict
-  racket/string
-  "logging.rkt")
+  racket/string)
 
-;;; https://gist.github.com/DarrenN/b2a764c0e8f80dc19dbb3858700749c1
-
-(current-logger rapider-log)
+;;; thanks for https://gist.github.com/DarrenN/b2a764c0e8f80dc19dbb3858700749c1
 
 (define-struct status (version code text) #:transparent)
 (define-struct response (url status headers content) #:transparent)
 
 (define get-url
   (λ (url-string [h (list)])
-    (log-info url-string)
     (define-values (port header)
       (get-pure-port/headers 
         (string->url url-string) 
         h
-        #:redirections 5
+        #:redirections 10
         #:status? #t))
     (define status (parse-status (get-status header)))
     (define headers (headers->jsoneq (extract-all-fields header)))
@@ -34,11 +30,15 @@
     (values (string->symbol (car hd)) (string-trim (cdr hd)))))
 
 (define (get-status header-string)
-  (car (regexp-match #px"[\\w/ .]*" header-string)))
+  (if 
+    (string-contains? (car (regexp-match #px"[\\w/ .]*" header-string)) "OK") 
+      (car (regexp-match #px"[\\w/ .]*" header-string)) 
+  (string-append (car (regexp-match #px"[\\w/ .]*" header-string)) "OK")))
 
 (define (parse-status status-str)
   (define-values (version code text) (apply values (string-split status-str)))
   (make-status version code text))
+
 
 (provide 
   (all-defined-out))
