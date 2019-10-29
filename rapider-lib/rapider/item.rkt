@@ -52,7 +52,18 @@
   parse-item)
 
 
+(define (save-to-csv
+          #:values-list values-list
+          #:csv-port csv-port
+          #:spliter [spliter ", "])
+  (define line (string-append (string-join values-list spliter) "\n"))
+  (display line csv-port)
+  (close-output-port csv-port))
+
+
+
 (provide 
+  save-to-csv
   item
   item-field
   extract-data)
