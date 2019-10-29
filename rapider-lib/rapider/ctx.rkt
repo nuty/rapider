@@ -6,8 +6,10 @@
   net/url-string
   net/head
   racket/dict
-  racket/string)
+  racket/string
+  "logging.rkt")
 
+(current-logger rapider-log)
 ;;; thanks for https://gist.github.com/DarrenN/b2a764c0e8f80dc19dbb3858700749c1
 
 (define-struct status (version code text) #:transparent)
@@ -15,6 +17,7 @@
 
 (define get-url
   (λ (url-string [h (list)])
+    (log-info url-string)	
     (define-values (port header)
       (get-pure-port/headers 
         (string->url url-string) 
