@@ -1,4 +1,4 @@
-#lang racket/base
+#lang racket
 (require
   net/url
   json
@@ -24,6 +24,7 @@
         h
         #:redirections 10
         #:status? #t))
+
     (define status (parse-status (get-status header)))
     (define headers (headers->jsoneq (extract-all-fields header)))
     (make-response url-string status headers (port->string port))))
@@ -33,12 +34,16 @@
     (values (string->symbol (car hd)) (string-trim (cdr hd)))))
 
 (define (get-status header-string)
-  (define ret (car (regexp-match #px"[\\w/ .]*" header-string)))
-  (if (string-contains? ret "OK") ret (string-append ret "OK")))
+  (car (regexp-match #px"[\\w/ .]*" header-string)))
+
 
 (define (parse-status status-str)
-  (define-values (version code text) (apply values (string-split status-str)))
-  (make-status version code text))
+  (define strc (string-split status-str " "))
+  (let (
+      [version (car strc)]
+      [code (second strc)]
+      [text (string-join (cdr (cdr strc)) "-")])
+    (make-status version code text)))
 
 
 (provide 
