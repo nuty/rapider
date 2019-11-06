@@ -3,6 +3,7 @@
   racket/async-channel
   "ctx.rkt")
 
+
 (define urls-channel (make-async-channel))
 (define workers-channel (make-async-channel))
 (define threads-num (+ (* (processor-count) 2) 2))
@@ -12,7 +13,7 @@
 
 (define (next cls doc callbacks [extra '()])
   (cond 
-    [(symbol? callbacks) (dynamic-send cls callbacks doc)]
+    [(symbol? callbacks) (dynamic-send cls callbacks doc extra)]
     [else 
       (for ([callback callbacks])
         (dynamic-send cls callback doc extra))]))
