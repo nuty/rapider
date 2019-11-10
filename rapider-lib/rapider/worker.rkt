@@ -11,12 +11,19 @@
 (define (request cls url callbacks [extra '()])
   (async-channel-put urls-channel (list cls url callbacks extra)))
 
-(define (next cls doc callbacks [extra ""])
+(define (next cls doc callbacks [extra '()])
   (cond 
-    [(symbol? callbacks) (dynamic-send cls callbacks doc extra)]
+    [(symbol? callbacks) 
+      (if 
+        (empty? extra) 
+          (dynamic-send cls callbacks doc)
+        (dynamic-send cls callbacks doc extra))]
     [else 
       (for ([callback callbacks])
-        (dynamic-send cls callback doc extra))]))
+        (if 
+          (empty? extra) 
+            (dynamic-send cls callback doc)
+          (dynamic-send cls callback doc extra)))]))
 
 
 (define (worker)
