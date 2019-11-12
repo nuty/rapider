@@ -2,7 +2,6 @@
 (require
   net/url
   json
-  time
   racket/port
   net/url-string
   net/head
