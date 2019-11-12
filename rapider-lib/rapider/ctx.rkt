@@ -2,6 +2,7 @@
 (require
   net/url
   json
+  time
   racket/port
   net/url-string
   net/head
@@ -16,7 +17,8 @@
 (define-struct response (url status headers content) #:transparent)
 
 (define get-url
-  (λ (url-string [h (list)])
+  (λ (url-string [h (list)] [rate 0])
+    (sleep rate)
     (log-info url-string)	
     (define-values (port header)
       (get-pure-port/headers 

@@ -39,8 +39,11 @@
                   [url (second elem)]
                   [callbacks (third elem)]
                   [extra (fourth elem)]
-                  [header (if (field-bound? header cls) (dynamic-get-field 'header cls) '())])
-                (let ([rsp (get-url url header)])
+                  [header (if (field-bound? header cls) (dynamic-get-field 'header cls) '())]
+                  [rate (if (field-bound? rate cls) 
+                          (dynamic-get-field 'rate cls) 
+                        0)])
+                (let ([rsp (get-url url header rate)])
                   (cond [(empty? extra) 
                     (if (symbol? callbacks)
                       (dynamic-send cls callbacks rsp)
