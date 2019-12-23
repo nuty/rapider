@@ -53,10 +53,10 @@
 
 
 (define (save-to-csv
-          #:values-list values-list
+          #:values values
           #:csv-port csv-port
           #:spliter [spliter ", "])
-  (define line (string-append (string-join values-list spliter) "\n"))
+  (define line (string-append (string-join values spliter) "\n"))
   (display line csv-port)
   (close-output-port csv-port))
 

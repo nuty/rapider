@@ -15,7 +15,7 @@
 
     (init-field 
       (name "xinfadi")
-      (pages 10)
+      (pages 100)
       (header '("User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/77.0.3865.90 Safari/537.36"))
       (base-url "http://www.xinfadi.com.cn/marketanalysis/0/list/")
       (start-urls 
@@ -25,10 +25,10 @@
 
     (define/public (start)
       (for ([url start-urls])
-        (request this url 'parse-list (list "a"))))
+        (request this url 'parse-list)))
 
-    (define/public (parse-list rsp extra)
-      (displayln extra))
+    (define/public (parse-list rsp)
+      (void))
 
   (super-new)))
 
