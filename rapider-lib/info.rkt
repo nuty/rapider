@@ -1,6 +1,6 @@
 #lang info
 
-(define collection "rapider-lib")
+(define collection 'multi)
 (define deps '("base"
                "net-url"
                "sxml"

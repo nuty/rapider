@@ -1,5 +1,5 @@
 #lang info
-(define collection "rapider")
+(define collection 'multi)
 (define deps '("rapider-lib"))
 
 (define implies '("rapider-lib"))
