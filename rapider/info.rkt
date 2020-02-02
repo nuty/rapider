@@ -1,6 +1,6 @@
 #lang info
 (define collection 'multi)
-(define deps '("rapider-lib"))
+(define deps '("rapider-lib" "sxml"))
 
 (define implies '("rapider-lib"))
 (define version "0.1")

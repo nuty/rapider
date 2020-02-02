@@ -6,6 +6,8 @@
                "sxml"
                "gregor"
                "html-parsing"))
+(define setup-collects '("net-url" "sxml" "gregor" "html-parsing"))
+
 (define pkg-desc "implementation (no documentation) part of \"rapider\"")
 (define pkg-authors '(rosso))
 
