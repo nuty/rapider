@@ -1,7 +1,7 @@
 #lang info
-(define collection 'multi)
-(define deps '("rapider-lib "base" "net-url" "sxml" "gregor" "html-parsing""))
-(define build-deps '("base" "net-url" "sxml" "gregor" "html-parsing"))
+(define collection "rapider")
+(define deps '("rapider-lib"))
+
 (define implies '("rapider-lib"))
 (define version "0.1")
 (define pkg-desc "web scraping micro-framework")
