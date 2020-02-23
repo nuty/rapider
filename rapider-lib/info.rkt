@@ -2,7 +2,6 @@
 
 (define collection 'multi)
 (define deps '("base"
-               "net/url"
                "sxml"
                "gregor"
                "html-parsing"))
