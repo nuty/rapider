@@ -104,3 +104,10 @@ Run `racket crawler.rkt`:
 (info) (2019-10-22 02:50:09) (rapider: http://quotes.toscrape.com/author/Haruki-Murakami) (crawled)
 (info) (2019-10-22 02:50:09) (rapider: http://quotes.toscrape.com/author/Alexandre-Dumas-fils) (crawled)
 ```
+
+
+### examples
+----------
+[Realworld spider](https://github.com/nuty/news-spider).
+
+[Demos](https://github.com/nuty/rapider/tree/master/examples).
