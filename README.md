@@ -7,7 +7,7 @@ Rapider is a web scraping micro-framework based on thread, written with `racket`
 
 
 ``` shell
-raco pkg install https://github.com/nuty/rapider.git
+raco pkg install rapider
 ```
 
 ## Usage
