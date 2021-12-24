@@ -2,8 +2,6 @@
 
 Rapider is a web scraping micro-framework based on thread, written with `racket` and `async-channel`, JUST FOR FUN.
 
-[![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/nuty/rapider)
-
 ## Installation
 
 
